@@ -24,7 +24,7 @@ function App() {
   };
 
   const handleImageGeneration = async () => {
-    let prompt = imageUrlInput;
+    //let prompt = imageUrlInput;
     try {
       const result = await generateImage("");
       console.log(result);
