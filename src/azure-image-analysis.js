@@ -16,7 +16,7 @@ async function analyzeImage(imageUrl) {
         params: {
             features: "caption,read", 
             "model-version": "latest", 
-            language: "en",
+            "language": "en",
         }
       }
     );

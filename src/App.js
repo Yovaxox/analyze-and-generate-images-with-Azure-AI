@@ -19,6 +19,7 @@ function App() {
       setImageUrlInput("");
     } catch (error) {
       setLoading(false);
+      window.alert(`Error analyzing image. Please try again.\n\nError details: ${error.response.data.error.message}`);
       console.error("Error analyzing image: ", error);
     }
   };
@@ -99,7 +100,6 @@ function App() {
         <h1><span className="firstHeader">Image analyzer</span> & <span className="secondHeader">Image generator</span></h1>
       </div>
       <div className="inputContainer">
-        <label>URL or Prompt:</label>
         <input
           type="text"
           placeholder="Enter URL or textual prompt"
@@ -108,10 +108,10 @@ function App() {
         ></input>
       </div>
       <div className="btnContainer">
-        <button onClick={handleImageAnalysis}>Analyze Image</button>
-        <button onClick={handleImageGeneration}>Generate Image</button>
+        <button className="btnAnalyzer" onClick={handleImageAnalysis} disabled={imageUrlInput === "" ? true : false}>Analyze Image</button>
+        <button className="btnGenerator" onClick={handleImageGeneration} disabled>Generate Image</button>
       </div>
-      {imageUrl === "" ? <h2 className="warningMessage">Please enter a URL or prompt to analyze or generate an image.</h2> : displayResults()}
+      {imageUrl === "" ? <div className="warningContainer"><h2><span className="warningMessage">Warning:</span> Please enter an URL or prompt to analyze or generate an image.</h2></div> : displayResults()}
     </div>
   );
 }
