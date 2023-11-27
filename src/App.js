@@ -46,10 +46,10 @@ function App() {
   const loader = () => {
     return (
     <div className="loaderContainer">
-        <div id="loader" class="loader">
-          <div id="bar-1" class="bar"></div>
-          <div id="bar-2" class="bar"></div>
-          <div id="bar-3" class="bar"></div>
+        <div id="loader" className="loader">
+          <div id="bar-1" className="bar"></div>
+          <div id="bar-2" className="bar"></div>
+          <div id="bar-3" className="bar"></div>
       </div>
     </div>
     )
@@ -58,9 +58,7 @@ function App() {
   const displayResults = () => {
     if (!result) return null;
     return (
-      loading ? loader() :
       <>
-        <hr className="separator" />
         <div className="resultTitleText">
           <h2>
             <span className="boldHighlight">Image results:</span>{" "}
@@ -111,7 +109,7 @@ function App() {
         <button className="btnAnalyzer" onClick={handleImageAnalysis} disabled={imageUrlInput === "" ? true : false}>Analyze Image</button>
         <button className="btnGenerator" onClick={handleImageGeneration} disabled>Generate Image</button>
       </div>
-      {imageUrl === "" ? <div className="warningContainer"><h2><span className="warningMessage">Warning:</span> Please enter an URL or prompt to analyze or generate an image.</h2></div> : displayResults()}
+      {loading ? loader() : imageUrl === "" ? <div className="warningContainer"><h2><span className="warningMessage">Warning:</span> Please enter an URL or prompt to analyze or generate an image.</h2></div> : displayResults()}
     </div>
   );
 }
