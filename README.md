@@ -1,5 +1,23 @@
-# React basic
+# Image Analyzer & Image Generator
 
-[Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) allows you to easily build [React](https://reactjs.org/) apps in minutes. Use this repo with the [React quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=react) to build and customize a new static site.
+This project can analyze and generate images by using the Computer Vision Azure service to analyze the image. On the other hand, we use OpenAI DALLE-2 model to generate an image.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
+
+Follow these steps to install the project:
+
+1. Run `npm install` to install all necessary packages.
+2. Configure the `.env` file with your settings.
+3. Run the project with `npm run start`.
+
+## Usage
+
+After installation, you can use the project by running `npm run start`.
+
+## License
+
+This project is licensed for personal usage. Please contact the owner for any other intended uses.
+
+## Contact
+
+For any queries or issues, please contact the project owner.
