@@ -1,24 +1,22 @@
-//import axios from "axios";
+import OpenAI from "openai";
 
-async function generateImage(prompt) {
+const openai = new OpenAI({
+  apiKey: process.env.REACT_APP_APIKEY_OPENAI.toString(),
+  dangerouslyAllowBrowser: true,
+});
 
-    /*
-    try {
-        const submission = await axios.post(url, body, { headers});
-        const operationLocation = submission.headers["operation-location"];
-        let status = "";
-        let response;
-        while (status !== "succeeded") {
-            await new Promise((resolve) => setTimeout(resolve, 1000));
-            response = await axios.get(operationLocation, { headers });
-            status = response.data.status;
-        }
-        return response.data.result.data;
-    } catch (error) {
-        console.error("Error generating image: ", error);
-        throw error;
-    }
-    */
-}
+const generateImage = async (prompt) => {
+  try {
+    const image = await openai.images.generate({
+      prompt: prompt.toString(),
+      model: "dall-e-2",
+      n: 1,
+    });
+    return image.data[0].url;
+  } catch (error) {
+    console.error("Error generating image: ", error);
+    throw error;
+  }
+};
 
 export default generateImage;
