@@ -168,7 +168,7 @@ function App() {
       ) : imageUrl === "" ? (
         <div className="warningContainer">
           <h2>
-            <span className="warningMessage">Warning:</span> Please enter an URL
+            <span className="warningMessage">Warning:</span> Please enter a URL
             or prompt to analyze or generate an image.
           </h2>
         </div>
